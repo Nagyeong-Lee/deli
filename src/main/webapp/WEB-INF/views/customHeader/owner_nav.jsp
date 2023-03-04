@@ -95,6 +95,10 @@
       <div class="icon"><i class="fa-solid fa-shop"></i></div>
       <div class="title">주문관리</div></div></a>
 
+      <%--커뮤니티--%>
+    <a href="/owner/community"><div class="nav_list d-flex flex-row">
+      <div class="icon"><i class="fa-solid fa-pen-to-square"></i></div>
+      <div class="title">커뮤니티</div></div></a>
     <a href="/account/logout"><div class="logout"><i class="fa-solid fa-right-from-bracket"></i> logout</div></a>
 
   </nav>

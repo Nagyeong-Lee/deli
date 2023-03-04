@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kh.deli.domain.owner.mapper.OwnerCommunityMapper">
+    <insert id="insert" parameterType="kh.deli.domain.owner.dto.BoardDTO">
+        insert into board values (
+        b_seq.nextval,
+        #{b_title},
+        #{b_writer},
+        #{b_contents},
+        sysdate,
+        #{b_category, jdbcType=VARCHAR},
+        0,
+        'Y',
+        #{b_parent_seq, jdbcType=NUMERIC},
+        #{b_upd_contents, jdbcType=VARCHAR},
+        #{b_upd_time, jdbcType=TIMESTAMP}
+        )
+    </insert>
+
+    <select id="select" resultType="kh.deli.domain.owner.dto.BoardDTO">
+        select * from board where b_status='Y' order by 1 desc
+    </select>
+</mapper>
