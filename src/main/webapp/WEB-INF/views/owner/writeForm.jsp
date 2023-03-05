@@ -39,7 +39,7 @@
     </script>
 
     <style>
-        .container{
+        .container {
             margin: auto;
         }
     </style>
@@ -55,8 +55,24 @@
         <input type="hidden" value="${loginEmail}" id="b_writer" name="b_writer">
         <textarea class="summernote" id="b_contents" name="b_contents"></textarea>
         <button id="submit" name="submit">작성하기</button>
-        <a href="/owner/community"><button type="button">목록으로</button></a>
+        <a href="/owner/community">
+            <button type="button">목록으로</button>
+        </a>
     </div>
 </form>
+
+<script>
+    $(function () {
+        var data = $(".container").find("#b_contents").innerHTML();
+        while (data.startsWith('<p><br></p>')) {
+            data = data.replace('<p><br></p>', '')
+        }
+
+        while (data.endsWith('<p><br></p>')) {
+            data = data.replace(new RegExp('<p><br></p>$'), '')
+        }
+        console.log(data);
+    });
+</script>
 </body>
 </html>

@@ -23,6 +23,16 @@ public class OwnerCommunityService {
         return mapper.select();
     }
 
+    public String getNickname(Integer b_seq) throws Exception{
+        return mapper.getNickname(b_seq);
+    }
+
+
+    //조회수 증가
+    public void count(Integer b_seq) throws Exception{
+        mapper.count(b_seq);
+    }
+
     //글 상세페이지로 이동
     public BoardDTO detailBoard(Integer b_seq) throws Exception{
         return mapper.detailBoard(b_seq);
@@ -31,4 +41,6 @@ public class OwnerCommunityService {
     public void delete(Integer b_seq) throws Exception{
         mapper.delete(b_seq);
     }
+
+
 }

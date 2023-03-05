@@ -24,21 +24,35 @@
         select * from board where b_status='Y' order by 1 desc
     </select>
 
+    <update id="count">
+        update board
+        set b_count=b_count+1
+        where b_seq=#{b_seq}
+    </update>
+
     <select id="detailBoard" resultType="kh.deli.domain.owner.dto.BoardDTO">
         select
             b_title,
             b_seq,
             b_write_time ,
             b_count,
-            b_upd_time
+            b_upd_time,
+            b_writer,
+            b_contents
         from board
         where b_seq=#{b_seq}
     </select>
 
     <delete id="delete">
-       update board
+        update board
         set b_status = 'N'
-        where b_seq=#{b_seq
-        }
+        where b_seq=#{b_seq}
     </delete>
+
+    <select id="getNickname" resultType="String">
+        select b_writer
+        from board
+        where b_seq=#{b_seq}
+    </select>
+
 </mapper>

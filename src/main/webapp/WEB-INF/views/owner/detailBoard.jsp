@@ -17,26 +17,64 @@
             integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
     </script>
 
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1000px;
+            margin-left: auto;
+        }
+
+        /*버튼*/
+        .btns * {
+            float: left;
+        }
+
+        /*댓글영역*/
+        .comment {
+            width: auto;
+            height: 100px;
+        }
+
+        /*글 내용*/
+        #content {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 <%@include file="/WEB-INF/views/customHeader/owner_nav.jsp" %>
 <div class="container">
     <div class="title">
-        ${detailBoard.b_seq}
-        ${detailBoard.b_title}
-        ${detailBoard.b_writer}
-        ${detailBoard.b_contents}
-        ${detailBoard.b_write_time}
-        ${detailBoard.b_count}
-        ${detailBoard.b_upd_time}
+        제목 : <input type="text" disabled value="${detailBoard.b_title}">
     </div>
-    <div class="info"></div>
-    <div class="content"></div>
-    <div class="comment"></div>
+    <div class="info">
+        작성자 : ${detailBoard.b_writer}<br>
+        작성 시간 : <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+                                value="${detailBoard.b_write_time}"/><br>
+        조회수 : ${detailBoard.b_count}
+        <c:if test="${detailBoard.b_upd_time != null}">
+            수정 시간 : <fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+                                    value="${detailBoard.b_upd_time}"/>
+        </c:if>
+    </div>
+    <div class="content">
+        <input id="content" type="text" disabled value="${detailBoard.b_contents}">
+    </div>
+    <div class="comment">
+        댓글 영역
+    </div>
 
+    <%--작성자==로그인 아이디 일때 삭제.수정 보여주기--%>
     <div class="btns">
-       <button type="button"><a href="/owner/community/delete?b_seq=${detailBoard.b_seq}">삭제하기</a></button>
-        <button type="button">수정하기</button>
+        <c:if test="${detailBoard.b_writer eq nickname}">
+            <button type="button"><a
+                    href="/owner/community/delete?b_seq=${detailBoard.b_seq}">삭제하기</a></button>
+            <button type="button">수정하기</button>
+        </c:if>
         <button type="button"><a href="/owner/community">목록으로</a></button>
     </div>
 </div>

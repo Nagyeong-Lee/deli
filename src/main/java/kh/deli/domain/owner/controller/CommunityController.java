@@ -17,7 +17,7 @@ public class CommunityController {
     private HttpSession session;
 
 
-    //select
+    //글 목록 출력
     @RequestMapping("")
     public String home(Model model) throws Exception {
 //        *세션정보를 못가져옴
@@ -37,9 +37,13 @@ public class CommunityController {
     //게시글 상세페이지로 이동
     @RequestMapping("/detailBoard")
     public String toDetailBoard(Integer b_seq, Model model) throws Exception {
+        service.count(b_seq); //조회수 증가
         BoardDTO dto = service.detailBoard(b_seq);
+        String nickname = service.getNickname(b_seq); //작성자와 로그인 세션 동일해야 수정 삭제 띄우려고
+        model.addAttribute("nickname", nickname);
         model.addAttribute("detailBoard", dto);
         System.out.println(b_seq);
+        System.out.println(nickname);
         return "/owner/detailBoard";
     }
 
@@ -59,5 +63,4 @@ public class CommunityController {
 
     //update
 
-    //count
 }
