@@ -17,7 +17,7 @@ public class CommunityController {
     private HttpSession session;
 
 
-    //글 목록 출력
+    //글 전체 목록 출력
     @RequestMapping("")
     public String home(Model model) throws Exception {
 //        *세션정보를 못가져옴
@@ -28,7 +28,7 @@ public class CommunityController {
         return "/owner/communityMain";
     }
 
-    //작성폼으로 이동
+    //글 작성폼으로 이동
     @RequestMapping("/writeForm")
     public String toWriteForm() throws Exception {
         return "/owner/writeForm";
@@ -42,8 +42,6 @@ public class CommunityController {
         String nickname = service.getNickname(b_seq); //작성자와 로그인 세션 동일해야 수정 삭제 띄우려고
         model.addAttribute("nickname", nickname);
         model.addAttribute("detailBoard", dto);
-        System.out.println(b_seq);
-        System.out.println(nickname);
         return "/owner/detailBoard";
     }
 

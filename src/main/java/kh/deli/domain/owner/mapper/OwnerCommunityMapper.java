@@ -12,10 +12,9 @@ import java.util.Map;
 @Mapper
 @Repository
 public interface OwnerCommunityMapper {
-    void insert(BoardDTO boardDTO);
+    void insert(BoardDTO boardDTO); //글 작성
 
-    //글 목록 출력
-    List<BoardDTO> select();
+    List<BoardDTO> select();     //글 전체 목록 출력
 
     void count(@Param("b_seq") Integer b_seq); //조회수 증가
     BoardDTO detailBoard(@Param("b_seq") Integer b_seq); //글상세페이지로이동

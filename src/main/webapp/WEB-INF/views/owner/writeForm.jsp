@@ -36,6 +36,7 @@
                 placeholder: '글을 입력하세요.'	//placeholder 설정
             });
 
+            //태그 제거 후 저장
             var data = $(".container").find("#b_contents").innerHTML();
                 while (data.startsWith('<p><br></p>')) {
                     data = data.replace('<p><br></p>', '')

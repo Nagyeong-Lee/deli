@@ -18,7 +18,7 @@ public class OwnerCommunityService {
         mapper.insert(boardDTO);
     }
 
-    //글 목록 출력
+    //글 전체 목록 출력
     public List<BoardDTO> select() throws Exception{
         return mapper.select();
     }

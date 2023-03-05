@@ -17,7 +17,6 @@
             integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
     </script>
 
-
     <!-- include libraries(jQuery, bootstrap) -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -31,9 +30,7 @@
         .container {
             margin: auto;
         }
-    </style>
 
-    <style>
         * {
             box-sizing: border-box;
         }
@@ -61,9 +58,11 @@
             width: 100%;
         }
     </style>
+
 </head>
 <body>
 <%@include file="/WEB-INF/views/customHeader/owner_nav.jsp" %>
+
 <%--작성자==로그인 아이디 일때 삭제.수정 보여주기--%>
 <form action="/owner/community/update" id="frm" method="post">
     <div class="container">
@@ -81,7 +80,7 @@
             </c:if>
         </div>
         <input id="b_contents" name="b_contents" value="${detailBoard.b_contents}"
-                  readonly="readonly">
+               readonly="readonly">
         <div id="b_comments" name="b_comments">댓글영역</div>
         <div class="btns">
             <c:if test="${detailBoard.b_writer ne nickname}">
