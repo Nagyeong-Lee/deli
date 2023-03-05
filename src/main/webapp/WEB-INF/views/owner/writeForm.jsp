@@ -35,6 +35,16 @@
                 lang: "ko-KR",					// 한글 설정
                 placeholder: '글을 입력하세요.'	//placeholder 설정
             });
+
+            var data = $(".container").find("#b_contents").innerHTML();
+                while (data.startsWith('<p><br></p>')) {
+                    data = data.replace('<p><br></p>', '')
+                }
+
+                while (data.endsWith('<p><br></p>')) {
+                    data = data.replace(new RegExp('<p><br></p>$'), '')
+                }
+                console.log(data);
         });
     </script>
 
@@ -61,18 +71,5 @@
     </div>
 </form>
 
-<script>
-    $(function () {
-        var data = $(".container").find("#b_contents").innerHTML();
-        while (data.startsWith('<p><br></p>')) {
-            data = data.replace('<p><br></p>', '')
-        }
-
-        while (data.endsWith('<p><br></p>')) {
-            data = data.replace(new RegExp('<p><br></p>$'), '')
-        }
-        console.log(data);
-    });
-</script>
 </body>
 </html>

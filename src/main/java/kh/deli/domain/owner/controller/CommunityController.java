@@ -62,5 +62,12 @@ public class CommunityController {
     }
 
     //update
-
+    @RequestMapping("/update")
+    public String update(Integer b_seq, String b_title, String b_contents) throws Exception{
+        System.out.println(b_seq);
+        System.out.println(b_title);
+        System.out.println(b_contents);
+        service.update(b_seq,b_title,b_contents);
+        return "redirect:/owner/community";
+    }
 }

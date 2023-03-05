@@ -55,4 +55,12 @@
         where b_seq=#{b_seq}
     </select>
 
+    <update id="update">
+        update board
+        set b_title=#{b_title},
+            b_contents=#{b_contents},
+            b_upd_time=sysdate
+        where b_seq=#{b_seq}
+    </update>
+
 </mapper>

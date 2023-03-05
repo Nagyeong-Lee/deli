@@ -21,5 +21,7 @@ public interface OwnerCommunityMapper {
     BoardDTO detailBoard(@Param("b_seq") Integer b_seq); //글상세페이지로이동
     void delete(@Param("b_seq") Integer b_seq);//글 삭제
     String getNickname(@Param("b_seq") Integer b_seq); // 작성자 닉네임 가져오기
-
+    void update(@Param("b_seq") Integer b_seq
+                ,@Param("b_title") String b_title
+                ,@Param("b_contents") String b_contents); //글 수정하기
 }

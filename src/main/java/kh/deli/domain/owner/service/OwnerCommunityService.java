@@ -42,5 +42,10 @@ public class OwnerCommunityService {
         mapper.delete(b_seq);
     }
 
+    //글수정
+    public void update(Integer b_seq, String b_title, String b_contents) throws Exception{
+        mapper.update(b_seq,b_title,b_contents);
+    }
+
 
 }
