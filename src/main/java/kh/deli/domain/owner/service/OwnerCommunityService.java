@@ -6,17 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class OwnerCommunityService {
     @Autowired
     private OwnerCommunityMapper mapper;
 
+    //글쓰기
     public void insert(BoardDTO boardDTO) throws Exception{
         mapper.insert(boardDTO);
     }
 
+    //글 목록 출력
     public List<BoardDTO> select() throws Exception{
         return mapper.select();
+    }
+
+    //글 상세페이지로 이동
+    public BoardDTO detailBoard(Integer b_seq) throws Exception{
+        return mapper.detailBoard(b_seq);
+    }
+
+    public void delete(Integer b_seq) throws Exception{
+        mapper.delete(b_seq);
     }
 }

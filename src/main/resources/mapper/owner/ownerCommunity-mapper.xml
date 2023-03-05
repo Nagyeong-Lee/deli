@@ -23,4 +23,22 @@
     <select id="select" resultType="kh.deli.domain.owner.dto.BoardDTO">
         select * from board where b_status='Y' order by 1 desc
     </select>
+
+    <select id="detailBoard" resultType="kh.deli.domain.owner.dto.BoardDTO">
+        select
+            b_title,
+            b_seq,
+            b_write_time ,
+            b_count,
+            b_upd_time
+        from board
+        where b_seq=#{b_seq}
+    </select>
+
+    <delete id="delete">
+       update board
+        set b_status = 'N'
+        where b_seq=#{b_seq
+        }
+    </delete>
 </mapper>
